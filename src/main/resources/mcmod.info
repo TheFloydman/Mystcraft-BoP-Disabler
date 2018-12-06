@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mystcraftbopdisabler",
+  "name": "Mystcraft BoP Disabler",
+  "description": "Automatically disables BoP Biomes in Mystcraft Dimensions.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheFloydman"],
+  "credits": "The Fluffy One for inspiring this mod.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

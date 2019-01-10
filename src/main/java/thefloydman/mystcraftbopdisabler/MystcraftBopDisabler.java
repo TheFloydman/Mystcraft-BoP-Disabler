@@ -18,16 +18,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import thefloydman.mystcraftbopdisabler.config.ModConfig;
 
-@Mod(modid = MystcraftBopDisabler.MOD_ID, name = "Mystcraft BoP Disabler", version = "1.0.0", dependencies = "")
+@Mod(modid = MystcraftBopDisabler.MOD_ID, name = MystcraftBopDisabler.NAME, version = MystcraftBopDisabler.VERSION, dependencies = MystcraftBopDisabler.DEPENDENCIES)
 public class MystcraftBopDisabler {
 
 	public final static String MOD_ID = "mystcraftbopdisabler";
-
+	public final static String NAME = "Mystcraft BoP Disabler";
+	public final static String VERSION = "1.0.1";
+	public final static String DEPENDENCIES = "";
 	public static Logger logger;
+	private static File configDir;
 
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
+		configDir = event.getModConfigurationDirectory();
 		writeToMystcraftSymbolConfig(ModConfig.bopBiomesEnabled);
 	}
 
@@ -42,10 +46,8 @@ public class MystcraftBopDisabler {
 	}
 
 	private static void writeToMystcraftSymbolConfig(boolean bopEnabled) {
-		String baseDir = Minecraft.getMinecraft().mcDataDir.getAbsolutePath();
-		baseDir = baseDir.substring(0, baseDir.length() - 1);
-		File mystcraftConfig = new File(baseDir + "config\\mystcraft\\symbols.cfg");
-		File mystcraftConfigTemp = new File(baseDir + "config\\mystcraft\\symbols.cfg.temp");
+		File mystcraftConfig = new File(configDir + "/mystcraft/symbols.cfg");
+		File mystcraftConfigTemp = new File(configDir + "/mystcraft/symbols.cfg.temp");
 
 		BufferedReader br = null;
 		BufferedWriter bw = null;

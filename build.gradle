@@ -19,9 +19,9 @@ repositories {
     }
 }
 
-version = "1.0.0"
+version = "1.0.1"
 group = "thefloydman.mystcraftbopdisabler" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "mystcraftbopdisabler"
+archivesBaseName = "mystcraftbopdisabler-1.12.2"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {

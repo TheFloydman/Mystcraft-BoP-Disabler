@@ -6,16 +6,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import thefloydman.mystcraftbopdisabler.config.ModConfig;
 
 @Mod(modid = MystcraftBopDisabler.MOD_ID, name = MystcraftBopDisabler.NAME, version = MystcraftBopDisabler.VERSION, dependencies = MystcraftBopDisabler.DEPENDENCIES)
@@ -23,7 +27,7 @@ public class MystcraftBopDisabler {
 
 	public final static String MOD_ID = "mystcraftbopdisabler";
 	public final static String NAME = "Mystcraft BoP Disabler";
-	public final static String VERSION = "1.0.1";
+	public final static String VERSION = "1.0.2";
 	public final static String DEPENDENCIES = "";
 	public static Logger logger;
 	private static File configDir;
@@ -46,6 +50,7 @@ public class MystcraftBopDisabler {
 	}
 
 	private static void writeToMystcraftSymbolConfig(boolean bopEnabled) {
+		
 		File mystcraftConfig = new File(configDir + "/mystcraft/symbols.cfg");
 		File mystcraftConfigTemp = new File(configDir + "/mystcraft/symbols.cfg.temp");
 
@@ -66,7 +71,7 @@ public class MystcraftBopDisabler {
 					}
 				}
 				if (skipped = true) {
-					bw.write(line);
+					bw.write(line + "\r\n");
 				}
 			}
 		} catch (Exception e) {
@@ -75,7 +80,7 @@ public class MystcraftBopDisabler {
 			try {
 				if (br != null) {
 					br.close();
-					System.out.println("Error");
+					logger.error("Error");
 				}
 			} catch (IOException e) {
 			}

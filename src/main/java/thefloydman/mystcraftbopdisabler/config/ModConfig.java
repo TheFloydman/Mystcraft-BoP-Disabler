@@ -19,7 +19,7 @@ public class ModConfig {
 	@Mod.EventBusSubscriber
 	public static class EventHandler {
 		@SubscribeEvent
-		public void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
+		public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
 			if (event.getModID().equals(MystcraftBopDisabler.MOD_ID)) {
 				ConfigManager.sync(MystcraftBopDisabler.MOD_ID, Config.Type.INSTANCE);
 			}

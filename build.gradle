@@ -14,14 +14,14 @@ def mystcraft_version = "0.13.5.01"
 
 repositories {
     maven {
-        name "xcompwiz"
-        url "http://maven.xcompwiz.com"
+        name = "curseforge"
+        url = "https://minecraft.curseforge.com/api/maven/"
     }
 }
 
-version = "1.0.1"
-group = "thefloydman.mystcraftbopdisabler" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "mystcraftbopdisabler-1.12.2"
+version = "1.12.2-1.0.2"
+group = "thefloydman.mystcraftbopdisabler"
+archivesBaseName = "mystcraftbopdisabler"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -29,7 +29,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.3.2676"
+    version = "1.12.2-14.23.5.2770"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -43,29 +43,8 @@ minecraft {
 
 dependencies {
 
-    compileOnly "com.xcompwiz.mystcraft:mystcraft:${mystcraft_version}:dev"
-    runtime "com.xcompwiz.mystcraft:mystcraft:${mystcraft_version}"
-
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    runtime "mystcraft:mystcraft:1.12.2:0.13.7.04"
+	runtime "biomes-o-plenty:BiomesOPlenty-1.12.2:7.0.1.2441:universal"
 
 }
 
